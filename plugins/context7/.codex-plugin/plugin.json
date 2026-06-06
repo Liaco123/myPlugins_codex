@@ -1,0 +1,41 @@
+{
+    "name": "context7",
+    "version": "0.1.0",
+    "description": "Up-to-date library and API documentation for Codex via Context7 MCP.",
+    "author": {
+        "name": "Context7",
+        "url": "https://context7.com"
+    },
+    "homepage": "https://context7.com",
+    "repository": "https://github.com/upstash/context7",
+    "license": "MIT",
+    "keywords": [
+        "documentation",
+        "mcp",
+        "library-docs",
+        "api-docs",
+        "code-examples"
+    ],
+    "skills": "./skills/",
+    "mcpServers": "./.codex-mcp.json",
+    "interface": {
+        "displayName": "Context7",
+        "shortDescription": "Fetch current library/API docs during coding tasks",
+        "longDescription": "Context7 brings up-to-date, version-specific documentation and code examples into Codex through MCP. Use it for library APIs, setup instructions, migrations, and framework-specific examples.",
+        "developerName": "Context7",
+        "category": "Productivity",
+        "capabilities": [
+            "Read"
+        ],
+        "websiteURL": "https://context7.com",
+        "privacyPolicyURL": "https://context7.com/privacy",
+        "termsOfServiceURL": "https://context7.com/terms",
+        "defaultPrompt": [
+            "Use Context7 for the latest Next.js docs",
+            "Look up Supabase auth docs with Context7",
+            "Use library /supabase/supabase for API docs"
+        ],
+        "brandColor": "#111827",
+        "logo": "./logo.svg"
+    }
+}
