@@ -1,0 +1,42 @@
+{
+    "name": "gitnexus",
+    "version": "1.3.6",
+    "description": "Code intelligence powered by a knowledge graph. Provides execution flow tracing, blast radius analysis, and augmented search across your codebase.",
+    "author": {
+        "name": "GitNexus",
+        "url": "https://github.com/abhigyanpatwari/GitNexus"
+    },
+    "homepage": "https://github.com/abhigyanpatwari/GitNexus",
+    "repository": "https://github.com/abhigyanpatwari/GitNexus",
+    "license": "MIT",
+    "keywords": [
+        "code-intelligence",
+        "mcp",
+        "library-docs",
+        "knowledge-graph",
+        "static-analysis"
+    ],
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "interface": {
+        "displayName": "GitNexus",
+        "shortDescription": "Code intelligence from a local knowledge graph",
+        "longDescription": "GitNexus indexes repositories into a local knowledge graph for code exploration, debugging, impact analysis, and safer refactoring. This plugin expects the GitNexus CLI to be installed globally so Codex can start the MCP server with `gitnexus mcp`.",
+        "developerName": "GitNexus",
+        "category": "Productivity",
+        "capabilities": [
+            "Read",
+            "Write"
+        ],
+        "websiteURL": "https://github.com/abhigyanpatwari/GitNexus",
+        "privacyPolicyURL": "https://github.com/abhigyanpatwari/GitNexus",
+        "termsOfServiceURL": "https://github.com/abhigyanpatwari/GitNexus",
+        "defaultPrompt": [
+            "Use GitNexus to explain this codebase",
+            "Analyze the impact of my current changes",
+            "Trace this bug through the knowledge graph"
+        ],
+        "brandColor": "#2563EB",
+        "logo": "./logo.svg"
+    }
+}
