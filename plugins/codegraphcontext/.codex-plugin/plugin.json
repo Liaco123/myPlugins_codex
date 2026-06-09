@@ -1,0 +1,41 @@
+{
+    "name": "codegraphcontext",
+    "version": "0.1.0",
+    "description": "Graph-based code intelligence for Codex via the CodeGraphContext MCP server.",
+    "author": {
+        "name": "CodeGraphContext",
+        "url": "https://github.com/CodeGraphContext"
+    },
+    "homepage": "https://codegraphcontext.github.io/",
+    "repository": "https://github.com/CodeGraphContext/CodeGraphContext",
+    "license": "MIT",
+    "keywords": [
+        "code-intelligence",
+        "mcp",
+        "knowledge-graph",
+        "static-analysis",
+        "graph-rag"
+    ],
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "interface": {
+        "displayName": "CodeGraphContext",
+        "shortDescription": "Query local codebases through a semantic code graph",
+        "longDescription": "CodeGraphContext indexes local repositories into a graph database and exposes code search, relationship analysis, call-chain tracing, and repository context through MCP. This plugin starts the CodeGraphContext MCP server with `uvx codegraphcontext mcp start`.",
+        "developerName": "CodeGraphContext",
+        "category": "Productivity",
+        "capabilities": [
+            "Read"
+        ],
+        "websiteURL": "https://codegraphcontext.github.io/",
+        "privacyPolicyURL": "https://github.com/CodeGraphContext/CodeGraphContext/security",
+        "termsOfServiceURL": "https://github.com/CodeGraphContext/CodeGraphContext/blob/main/LICENSE",
+        "defaultPrompt": [
+            "Use CodeGraphContext to index this repository",
+            "Find callers of this function with CodeGraphContext",
+            "Trace this dependency path through the code graph"
+        ],
+        "brandColor": "#0F766E",
+        "logo": "./logo.svg"
+    }
+}

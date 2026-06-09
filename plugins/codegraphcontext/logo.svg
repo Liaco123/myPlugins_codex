@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">CodeGraphContext</title>
+  <desc id="desc">Connected graph nodes forming a code context mark.</desc>
+  <rect width="256" height="256" rx="48" fill="#0f172a"/>
+  <path d="M73 78h110v28H73zM73 150h110v28H73z" fill="#14b8a6" opacity=".92"/>
+  <path d="M98 106l-31 44M158 106l31 44M100 164h56" fill="none" stroke="#ccfbf1" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="73" cy="92" r="22" fill="#5eead4"/>
+  <circle cx="183" cy="92" r="22" fill="#2dd4bf"/>
+  <circle cx="67" cy="164" r="22" fill="#99f6e4"/>
+  <circle cx="189" cy="164" r="22" fill="#14b8a6"/>
+  <circle cx="128" cy="164" r="18" fill="#f8fafc"/>
+</svg>

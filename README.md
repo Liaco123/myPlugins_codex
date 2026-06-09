@@ -10,6 +10,8 @@ This repository contains a local Codex plugin marketplace and bundled plugin pac
 ## Included Plugins
 
 - `context7`: Up-to-date library and API documentation for Codex via Context7 MCP.
+- `codegraphcontext`: Graph-based code intelligence for Codex via CodeGraphContext MCP.
+- `gitnexus`: Code intelligence powered by a local knowledge graph.
 - `mem0`: Persistent memory for Codex across coding sessions.
 
 ## Repository Layout
@@ -17,7 +19,9 @@ This repository contains a local Codex plugin marketplace and bundled plugin pac
 ```text
 .agents/plugins/marketplace.json
 plugins/
+  codegraphcontext/
   context7/
+  gitnexus/
   mem0/
 ```
 

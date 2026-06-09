@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "codegraphcontext": {
+            "command": "uvx",
+            "args": [
+                "codegraphcontext",
+                "mcp",
+                "start"
+            ]
+        }
+    }
+}
