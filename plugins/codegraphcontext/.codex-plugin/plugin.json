@@ -21,7 +21,7 @@
     "interface": {
         "displayName": "CodeGraphContext",
         "shortDescription": "Query local codebases through a semantic code graph",
-        "longDescription": "CodeGraphContext indexes local repositories into a graph database and exposes code search, relationship analysis, call-chain tracing, and repository context through MCP. This plugin starts the CodeGraphContext MCP server with `uvx codegraphcontext mcp start`.",
+        "longDescription": "CodeGraphContext indexes local repositories into a graph database and exposes code search, relationship analysis, call-chain tracing, and repository context through MCP. This plugin starts the CodeGraphContext MCP server with `cgc mcp start`.",
         "developerName": "CodeGraphContext",
         "category": "Productivity",
         "capabilities": [

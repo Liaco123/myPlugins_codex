@@ -1,9 +1,8 @@
 {
     "mcpServers": {
         "codegraphcontext": {
-            "command": "uvx",
+            "command": "cgc",
             "args": [
-                "codegraphcontext",
                 "mcp",
                 "start"
             ]

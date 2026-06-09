@@ -18,6 +18,6 @@ Workflow:
 4. If tools are unavailable, report that CodeGraphContext MCP is not connected and fall back to local code inspection.
 
 Operational notes:
-- This plugin starts CGC with `uvx codegraphcontext mcp start`.
+- This plugin starts CGC with `cgc mcp start`.
 - CGC may create or use configuration under the user's CodeGraphContext home directory.
 - For C or C++ projects, accurate SCIP indexing may require a valid `compile_commands.json`.
