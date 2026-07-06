@@ -1,96 +1,133 @@
 ---
 name: concept-and-risk-reviewer
-description: Generate multiple constrained mechanical concept options and preliminary risk/FMEA review for medical mechanical design, embodied intelligence mechanisms, lab automation, analyzer accessories, pipette fixtures, non-standard jigs, and equipment modifications. Use when Codex needs concept comparison, failure modes, safety concerns, contamination/sample integrity checks, or early design critique before CAD.
+description: Generate traceable solution options, maturity verdicts, swimlane flowcharts, exception/data-flow diagrams, 2D HTML three-view displays, step-level actor/object/external-mechanism definitions, scoring, and preliminary risk reviews for medical or laboratory automation solution design.
 ---
 
 # Concept And Risk Reviewer
 
-Use this skill after design inputs are organized. Generate multiple options, then challenge them against medical mechanical constraints. Do not present any option as final or verified.
+默认使用中文输出，除非用户明确要求其他语言。
 
-Default to Chinese outputs unless the user explicitly requests another language.
+这个技能的重心是方案设计，不是机械设计。先定义流程、工艺步骤、操作主体、对象、外部机构、风险和评分；只有在资料足够时才进入机构形式、布局和验证细节。不得把假设包装成事实。
 
-## Required Inputs
+## 必要输入
 
-Prefer `outputs/design_input.md`. If absent, inspect available `inputs/` files and clearly label any assumptions.
+优先读取 `outputs/design_input.md`。如果不存在，检查 `inputs/`，并清楚标出缺口。资料不足时先输出追问清单，不要强行选择方案。
 
-If equipment model numbers, CAD files, videos, or audio are present, verify that they have been indexed in `inputs/source_log.md`, `inputs/cad_index.md`, `inputs/video_index.md`, or `inputs/audio_index.md`. Do not treat unconfirmed web search results, native CAD files, or video observations as measured facts.
+如果有设备型号、CAD、视频、音频或网页资料，必须检查它们是否记录在 `inputs/source_log.md`, `inputs/cad_index.md`, `inputs/video_index.md`, `inputs/audio_index.md`。未确认资料只能作为待核实线索。
 
-## Concept Harness
+## 方案成熟度门槛
 
-Every concept option must include:
+- S0 资料接收：只输出缺口和追问。
+- S1 流程拆解：允许输出步骤表和初版总流程图。
+- S2 方案比较：允许输出多个方案、步骤评分、方案级评分、风险初评。
+- S3 展示评审：允许输出二维 HTML 三视图和评审会议输出包。
+- S4 验证准备：允许把方案转为验证计划。
 
-- Structure principle
-- Motion/action path
-- Installation and positioning method
-- Interface with original equipment
-- Consumable/sample interaction
-- Expected effect on original equipment performance
-- External-assist mechanisms needed beyond the robot body, such as clamps, rotary cap openers, door openers, nests, guides, pipetting/dosing modules, filtration modules, conveyors, or tool changers
-- Manufacturing method
-- Assembly method
-- Cleaning and maintenance method
-- Likely failure modes
-- Verification method
-- Key unknowns
+当证据不足时，必须停在当前等级，并写清楚升级到下一等级需要的资料。
 
-## Risk Harness
+## 流程图输出规范
 
-Check at least these risk families:
+每个进入 S2 或以上的方案至少输出 4 类 Mermaid 图：
 
-- Contamination and cleanability
-- Sample loss, carryover, or result interference
-- Positioning error and tolerance stack-up
-- Clamping, slipping, loosening, or wear
-- Overload, jamming, pinch, collision, or fatigue
-- Misuse, operator confusion, and accessibility
-- Consumable compatibility
-- Cleaning/disinfection material compatibility
-- Power loss or emergency stop state
-- Maintenance and replacement errors
-- Original equipment warranty, calibration, or service impact
+1. 总流程图：从输入物到最终输出物，显示主线步骤。
+2. 泳道图：按人工、机器人/自动化、固定设备、外部机构/系统分 lane。
+3. 异常流程图：失败、复核、急停、人工介入、返工、废弃。
+4. 数据流图：扫码、记录、判定、上传、追溯、放行。
 
-## Output
+如果资料不足以画某类图，输出空白占位和追问，不要补故事。
 
-Create or update `outputs/concept_options.md`:
+## 二维 HTML 三视图
+
+进入 S3 时，创建或更新 `outputs/process_view.html`。页面必须包含：
+
+- 流程泳道视图：展示步骤在人工、机器人/自动化、固定设备、外部机构/系统之间的分工。
+- 空间/工位二维布局视图：展示工位、设备、物料流、人员通道、机器人路径或待补区域。
+- 步骤详情侧栏视图：点击或定位步骤后显示主体、对象、外部机构、风险、评分、缺失资料。
+
+HTML 是评审草图，不是施工图。缺少尺寸或布局资料时，用“待补”标记。
+
+## 方案输出要求
+
+每个方案必须包含：
+
+- 方案目标和适用边界。
+- 方案成熟度和升级条件。
+- 流程总览。
+- Mermaid 总流程图、泳道图、异常流程图、数据流图。
+- 二维 HTML 三视图说明。
+- 工艺步骤表：每步必须列出操作主体、操作对象、输入、输出、外部机构、风险点、评分。
+- 外部机构/辅助系统清单。
+- 人工保留步骤、机器人/自动化步骤、固定设备步骤、待验证步骤。
+- 数据记录和追溯点。
+- 关键未知项和下一轮资料请求。
+
+## 评分口径
+
+默认使用 1-5 分，允许按项目调整但必须说明口径：
+
+| 评分项 | 5 分含义 | 1 分含义 |
+| --- | --- | --- |
+| 可行性 | 资料充分、动作清晰、已有类似实现 | 原理或边界不清 |
+| 风险等级 | 高风险且难检测 | 风险低且易检测 |
+| 资料置信度 | 有直接来源、视频/CAD/manual 支撑 | 主要靠口述或推断 |
+| 自动化价值 | 明显降低人力、错误或暴露 | 自动化收益不明确 |
+| 实施复杂度 | 多系统耦合且验证困难 | 简单集成 |
+| 验证清晰度 | 接受标准可量化、测试路径清楚 | 难以定义可测标准 |
+
+风险等级和实施复杂度的高分表示“更不利”。推荐排序时必须说明采用收益优先、风险优先，还是综合评分。
+
+## 评审会议输出包
+
+进入 S3 或用户要求评审材料时，生成：
+
+- 本轮结论。
+- 推荐方案。
+- 不推荐方案。
+- 关键风险。
+- 待客户/现场确认事项。
+- 下一轮资料清单。
+- 工程待办。
+
+## 假设锁定
+
+任何被方案引用的假设都要登记：
+
+| 假设 ID | 假设内容 | 来源 | 影响范围 | 被哪些方案/步骤引用 | 确认状态 |
+| --- | --- | --- | --- | --- | --- |
+
+## 输出文件
+
+创建或更新 `outputs/concept_options.md`：
 
 ```markdown
-# Concept Options
+# 方案选项
 
-## Input Summary
-## Option 1: <name>
-## Option 2: <name>
-## Option 3: <name>
-## Comparison Matrix
-## External Assist Mechanism List
-## Recommended Direction
-## Rejected Ideas
-## Assumptions
-## Open Questions
+## 输入摘要
+## 方案成熟度
+## 当前资料缺口
+## 方案 1: <名称>
+## 方案 2: <名称>
+## 方案 3: <名称>
+## 总流程图
+## 泳道流程图
+## 异常流程图
+## 数据流图
+## 工艺步骤评分表
+## 方案级评分矩阵
+## 外部机构与接口清单
+## 二维 HTML 三视图说明
+## 对比矩阵
+## 推荐方向
+## 暂不建议自动化的步骤
+## 被否决方案
+## 假设锁定与变更记录
+## 评审会议输出包
+## 开放问题
 ## Action Packages
 ```
 
-Create or update `outputs/risk_review.md`:
+创建或更新 `outputs/risk_review.md`。风险表字段：Step ID, 工艺步骤, 操作主体, 操作对象, 外部机构, 风险点, 原因, 后果, 检测方式, 缓解措施, 风险评分, 资料置信度, 验证项, Owner, Status。
 
-```markdown
-# Preliminary Risk Review
+## 决策规则
 
-## Scope
-## Risk Table
-## Highest Priority Risks
-## Verification Links
-## Residual Concerns
-## Engineer Review Notes
-## Action Packages
-```
-
-Risk table columns should include: hazard, cause, effect, detection, mitigation, verification item, owner, status.
-
-## Decision Rule
-
-Recommend the concept that best preserves sample integrity, equipment safety, reliability, manufacturability, maintainability, and verification clarity. If evidence is insufficient, recommend the next test or measurement instead of choosing.
-
-For mobile dual-arm robot projects, explicitly separate:
-
-- Tasks likely feasible with the robot body, arms, end effectors, and navigation.
-- Tasks requiring external fixed fixtures or active mechanisms.
-- Tasks that should remain manual until evidence supports automation.
+优先推荐流程清晰、资料证据强、样本完整性好、污染风险低、记录可追溯、验证路径明确的方案。证据不足时，推荐下一步测试、补资料或现场观察，而不是硬选最终方案。

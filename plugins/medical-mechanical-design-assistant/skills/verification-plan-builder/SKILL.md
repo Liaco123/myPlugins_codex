@@ -1,21 +1,21 @@
 ---
 name: verification-plan-builder
-description: Build measurable verification plans for medical mechanical design concepts, lab equipment fixture changes, analyzer/pipette tooling, embodied intelligence mechanisms, and non-standard medical-related mechanical modifications. Use when Codex needs to turn requirements, concepts, risks, or test notes into verification items with methods, tools, sample sizes, pass criteria, records, and gate status.
+description: Build measurable verification plans for medical or laboratory automation方案, process steps, external mechanisms, workflow records, risk controls, and 2D/flowchart assumptions. Use when Codex needs to turn方案, step tables, risks, or tests into verifiable items with methods, data, pass criteria, owners, and gate status.
 ---
 
 # Verification Plan Builder
 
-Use this skill to turn design inputs, selected concepts, and risk items into measurable verification work. Verification plans must be executable by an engineer or technician.
+默认使用中文输出，除非用户明确要求其他语言。验证计划必须能由工程师、工艺人员或测试人员执行。
 
-Default to Chinese outputs unless the user explicitly requests another language.
+## 必要输入
 
-## Required Inputs
-
-Prefer these files when present:
+优先读取：
 
 - `outputs/design_input.md`
 - `outputs/concept_options.md`
 - `outputs/risk_review.md`
+- `outputs/process_view.html`
+- `inputs/workflow_steps.md`
 - `inputs/dimensions.md`
 - `inputs/safety_and_risk_boundaries.md`
 - `inputs/source_log.md`
@@ -23,49 +23,72 @@ Prefer these files when present:
 - `inputs/video_index.md`
 - `inputs/audio_index.md`
 
-## Verification Harness
+资料不足时，输出待补资料和验证阻塞项，不要虚构通过标准。
 
-Every verification item must include:
+## 验证对象
 
-- Requirement or risk link
-- What to measure or observe
-- Method and setup
-- Required tool or fixture
-- Sample quantity or repetition count
-- Data to record
-- Acceptance criteria
-- Failure handling
-- Owner
-- Status
-- Whether an external-assist mechanism is required and how that mechanism is verified
+每个验证项必须至少关联以下之一：
 
-Avoid vague criteria such as "works well" or "stable enough". Convert them into dimensions, force, travel, time, error, repeat count, visual defect criteria, contamination criterion, or operator workflow criterion.
+- 工艺步骤。
+- 操作主体。
+- 操作对象。
+- 外部机构或系统接口。
+- 风险点或控制措施。
+- 数据记录/追溯点。
+- 流程图或二维 HTML 展示中的关键假设。
 
-When a criterion depends on CAD, video, audio, or vendor documents, include the evidence source and whether it is measured, vendor-published, video-observed, AI-inferred, or pending confirmation.
+## 验证项字段
 
-## Output
+每个验证项必须包含：
 
-Create or update `outputs/verification_plan.md`:
+- Requirement or risk link。
+- Step ID。
+- 操作主体、操作对象、外部机构。
+- 需要测量或观察什么。
+- 方法和测试设置。
+- 所需工具、夹具、样本或资料。
+- 样本量或重复次数。
+- 记录数据。
+- 可量化接受标准。
+- 失败处理。
+- Owner。
+- Status。
+- 资料来源和证据等级。
+
+避免“运行稳定”“效果良好”等模糊标准。转成时间、体积、位置误差、成功率、重复次数、缺陷判定、污染标准、记录完整率或人工确认标准。
+
+## 输出
+
+创建或更新 `outputs/verification_plan.md`：
 
 ```markdown
-# Verification Plan
+# 验证计划
 
-## Scope
-## Assumptions
-## Verification Matrix
-## Test Setups
-## Required Tools And Fixtures
-## Data Recording Template
-## Gate 5 Readiness Verdict
+## 范围
+## 假设与资料缺口
+## 验证矩阵
+## 步骤级验证覆盖
+## 外部机构与接口验证
+## 数据记录与追溯验证
+## 测试设置
+## 所需工具、样本与夹具
+## 数据记录模板
+## Gate 5 准入结论
 ## Action Packages
 ```
 
-Verification matrix columns should include: ID, requirement/risk link, method, setup, tool, repetitions, data record, acceptance criteria, owner, status.
+验证矩阵字段：ID, Step ID, requirement/risk link, 操作主体, 操作对象, 外部机构, method, setup, tool, repetitions, data record, acceptance criteria, evidence source, owner, status。
 
-## Gate 5 Pass Criteria
+## Gate 5 通过标准
 
-Gate 5 passes only when all high-priority risks have a verification item and every verification item has a measurable acceptance criterion.
+Gate 5 只有在所有高优先级风险都有验证项、每个关键工艺步骤都有可量化接受标准、外部机构/接口有验证方法、资料缺口被解决或被工程负责人明确接受为风险后，才能通过。
 
-## Deterministic Checks
+## 确定性检查
 
-Run `python scripts/check_gate.py <project-folder> --gate 5` to check required output sections and risk-to-verification coverage where files are available.
+项目文件夹存在时，运行：
+
+```powershell
+python scripts\check_gate.py <project-folder> --gate 5
+```
+
+脚本只检查结构覆盖，不替代工程评审。

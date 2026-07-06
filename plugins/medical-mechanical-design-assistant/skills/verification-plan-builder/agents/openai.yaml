@@ -1,7 +1,7 @@
 interface:
   display_name: "Verification Plan Builder"
-  short_description: "Build measurable verification plans"
+  short_description: "为方案、工艺步骤、外部机构和风险控制建立验证计划"
   brand_color: "#256D85"
-  default_prompt: "Use $verification-plan-builder to create measurable verification items and pass criteria."
+  default_prompt: "使用 $verification-plan-builder 为方案步骤、外部机构、风险控制和记录追溯建立可量化验证计划。"
 policy:
   allow_implicit_invocation: true

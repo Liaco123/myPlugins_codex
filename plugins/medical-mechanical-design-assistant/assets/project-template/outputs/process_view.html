@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>方案二维三视图</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #607080;
+      --line: #d8dee5;
+      --panel: #ffffff;
+      --bg: #f4f7f9;
+      --brand: #256d85;
+      --risk-high: #c0392b;
+      --risk-medium: #d68910;
+      --risk-low: #2e7d32;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 26px;
+      margin: 0 0 6px;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .maturity {
+      min-width: 180px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 14px;
+    }
+    section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px;
+    }
+    section h2 {
+      font-size: 16px;
+      margin: 0 0 12px;
+    }
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      min-height: 260px;
+      background: #fbfdff;
+    }
+    .lane h3 {
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+    .step {
+      border: 1px solid #9fb3c8;
+      border-left: 5px solid var(--brand);
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .meta {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .risk-high { border-left-color: var(--risk-high); }
+    .risk-medium { border-left-color: var(--risk-medium); }
+    .risk-low { border-left-color: var(--risk-low); }
+    .layout {
+      position: relative;
+      min-height: 360px;
+      background:
+        linear-gradient(90deg, rgba(31, 41, 51, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(31, 41, 51, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      overflow: hidden;
+    }
+    .zone {
+      position: absolute;
+      border: 2px solid var(--brand);
+      border-radius: 8px;
+      background: rgba(37, 109, 133, 0.08);
+      padding: 8px;
+      font-size: 13px;
+      min-width: 110px;
+      min-height: 64px;
+    }
+    .zone.pending {
+      border-style: dashed;
+      color: var(--muted);
+      background: rgba(96, 112, 128, 0.08);
+    }
+    .path {
+      position: absolute;
+      left: 80px;
+      right: 120px;
+      top: 170px;
+      height: 4px;
+      background: var(--brand);
+    }
+    .path::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -6px;
+      border-left: 12px solid var(--brand);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+    .detail dl {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 8px 10px;
+      margin: 0;
+      font-size: 13px;
+    }
+    .detail dt {
+      color: var(--muted);
+    }
+    .detail dd {
+      margin: 0;
+    }
+    .scores {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .score {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 13px;
+      background: #fbfdff;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .lane-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; }
+      .maturity { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>方案二维三视图</h1>
+        <div class="subtitle">流程泳道、空间/工位布局、步骤详情。所有“待补”均表示需要资料确认。</div>
+      </div>
+      <div class="maturity">
+        <strong>成熟度：</strong>S0/S1/S2/S3/S4<br>
+        <span class="meta">升级条件：待补</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section>
+        <h2>流程泳道视图</h2>
+        <div class="lane-grid">
+          <div class="lane">
+            <h3>人工</h3>
+            <div class="step risk-medium">
+              <strong>S01 待补：人工准备</strong>
+              <div class="meta">对象：待补<br>外部机构：待补<br>风险：待补<br>评分：待补</div>
+            </div>
+          </div>
+          <div class="lane">
+            <h3>机器人/自动化</h3>
+            <div class="step">
+              <strong>S02 待补：自动化动作</strong>
+              <div class="meta">对象：待补<br>接口：待补</div>
+            </div>
+          </div>
+          <div class="lane">
+            <h3>固定设备</h3>
+            <div class="step">
+              <strong>S03 待补：设备处理</strong>
+              <div class="meta">设备：待补<br>记录：待补</div>
+            </div>
+          </div>
+          <div class="lane">
+            <h3>外部机构/系统</h3>
+            <div class="step">
+              <strong>S04 待补：辅助机构/数据系统</strong>
+              <div class="meta">机构：待补<br>数据：待补</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail">
+        <h2>步骤详情侧栏</h2>
+        <dl>
+          <dt>Step ID</dt><dd>S01</dd>
+          <dt>工艺目的</dt><dd>待补</dd>
+          <dt>操作主体</dt><dd>人工/机器人/设备/外部机构/系统：待补</dd>
+          <dt>操作对象</dt><dd>待补</dd>
+          <dt>输入</dt><dd>待补</dd>
+          <dt>输出</dt><dd>待补</dd>
+          <dt>外部机构</dt><dd>待补</dd>
+          <dt>风险点</dt><dd>待补</dd>
+          <dt>缺失资料</dt><dd>待补</dd>
+        </dl>
+        <div class="scores">
+          <div class="score">可行性：待补</div>
+          <div class="score">风险等级：待补</div>
+          <div class="score">资料置信度：待补</div>
+          <div class="score">自动化优先级：待补</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>空间/工位二维布局视图</h2>
+        <div class="layout">
+          <div class="zone pending" style="left: 28px; top: 36px;">待补：上料/准备区</div>
+          <div class="zone pending" style="left: 250px; top: 36px;">待补：固定设备</div>
+          <div class="zone pending" style="left: 480px; top: 36px;">待补：辅助机构</div>
+          <div class="zone pending" style="left: 250px; top: 235px;">待补：机器人停靠/路径</div>
+          <div class="path" aria-label="material flow"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>评审关注点</h2>
+        <dl>
+          <dt>关键风险</dt><dd>待补</dd>
+          <dt>人工保留</dt><dd>待补</dd>
+          <dt>待客户确认</dt><dd>待补</dd>
+          <dt>下一轮资料</dt><dd>待补</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

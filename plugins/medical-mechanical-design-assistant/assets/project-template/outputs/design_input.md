@@ -1,34 +1,55 @@
-# Design Input
+# 方案设计输入
 
-## Project Background
+## 项目背景
 
-## Intended Clinical/Lab Workflow Context
+## 方案成熟度
 
-## Target Action Or Mechanical Function
+| 当前等级 | 判断依据 | 下一等级 | 升级所需资料 |
+| --- | --- | --- | --- |
+| S0/S1/S2/S3/S4 | 待补 | 待补 | 待补 |
 
-## User And Operator Interaction
+## 工艺目标与成功标准
 
-## Equipment, Consumables, And Interfaces
+## 当前人工/现有流程
 
-## Known Dimensions And Missing Dimensions
+## 工艺步骤表
 
-## Hard Constraints And No-Change Boundaries
+| Step ID | 工艺目的 | 操作主体 | 操作对象 | 输入 | 输出 | 外部机构/系统 | 关键参数 | 判定/记录 | 风险点 | 可行性 | 风险等级 | 资料置信度 | 自动化优先级 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Safety, Contamination, And Sample Integrity Boundaries
+## 操作主体与对象清单
 
-## Manufacturing, Assembly, Cleaning, And Maintenance Constraints
+## 外部机构与系统接口清单
 
-## Assumptions
+## 场地、设备、耗材与数据接口
 
-## Source And Evidence Summary
+## 已知参数与缺失参数
 
-## Open Questions
+## 约束与不可改变边界
 
-## Gate 0 Readiness Verdict
+## 安全、污染、样本完整性边界
+
+## 评分口径
+
+## 假设锁定与变更记录
+
+| 假设 ID | 假设内容 | 来源 | 影响范围 | 被哪些方案/步骤引用 | 确认状态 |
+| --- | --- | --- | --- | --- | --- |
+
+## 事实、假设与决策
+
+## 资料来源摘要
+
+## 待补资料与追问
+
+| 资料 | 用途 | 推荐格式 | 缺失影响 | 优先级 |
+| --- | --- | --- | --- | --- |
+
+## Gate 0 准入结论
 
 ## Action Packages
 
-### Action Package: <task name>
+### Action Package: <任务名>
 - Goal:
 - Input materials:
 - Execution steps:

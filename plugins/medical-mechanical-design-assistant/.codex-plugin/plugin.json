@@ -1,33 +1,34 @@
 {
   "name": "medical-mechanical-design-assistant",
-  "version": "0.1.0",
-  "description": "A constrained, traceable front-end design workstation for medical mechanical project intake, source collection, concept planning, fixture modifications, risk reviews, verification planning, and layout-ready inputs.",
+  "version": "0.2.0+codex.20260706054325",
+  "description": "A constrained, traceable solution-design workstation for medical and laboratory automation projects: intake, evidence review, maturity gates, process flowcharts, 2D HTML three-view displays, risk scoring, and verification planning.",
   "author": {
-    "name": "Local Medical Mechanical Design Team"
+    "name": "Local Medical Solution Design Team"
   },
   "license": "UNLICENSED",
   "keywords": [
     "medical-device",
-    "mechanical-design",
-    "fixture-design",
+    "process-design",
+    "solution-design",
+    "workflow-mapping",
     "risk-review",
     "verification"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Medical Mechanical Design Assistant",
-    "shortDescription": "Structured early-stage medical mechanical design workflow.",
-    "longDescription": "Helps mechanical engineers guide users through project intake, accepted file formats, equipment/source collection, CAD/video/audio readiness, design briefs, concept options, preliminary risk reviews, and verification plans for medical-related embodied intelligence and non-standard fixture modification work. AI generates and challenges drafts; scripts check completeness and file readiness; engineers remain responsible for judgment, approval, and validation.",
-    "developerName": "Local Medical Mechanical Design Team",
+    "displayName": "Medical Process Solution Assistant",
+    "shortDescription": "Structured medical and lab automation solution design workflow.",
+    "longDescription": "Helps teams turn existing project materials into traceable solution designs: maturity gating, process decomposition, total/swimlane/exception/data flowcharts, 2D HTML three-view displays, per-step actor/object/external-mechanism/risk/score definition, missing-material requests, preliminary risk review, and verification planning. AI drafts and challenges solutions; engineers remain responsible for judgment, approval, and validation.",
+    "developerName": "Local Medical Solution Design Team",
     "category": "Productivity",
     "capabilities": [
       "Read",
       "Write"
     ],
     "defaultPrompt": [
-      "引导我准备一个医疗机械自动化项目的输入资料包。",
-      "整理这个项目的设计输入、缺失资料和来源记录。",
-      "生成方案选项、外部辅助机构清单和初步风险评审。"
+      "\u6839\u636e\u5df2\u6709\u8d44\u6599\u6574\u7406\u9879\u76ee\u65b9\u6848\uff0c\u5e76\u5217\u51fa\u8fd8\u7f3a\u54ea\u4e9b\u5173\u952e\u8d44\u6599\u3002",
+      "\u628a\u5f53\u524d\u6d41\u7a0b\u62c6\u6210\u5de5\u827a\u6b65\u9aa4\uff0c\u6807\u660e\u6bcf\u6b65\u7684\u64cd\u4f5c\u4e3b\u4f53\u3001\u5bf9\u8c61\u3001\u5916\u90e8\u673a\u6784\u3001\u98ce\u9669\u70b9\u548c\u8bc4\u5206\u3002",
+      "\u751f\u6210\u65b9\u6848\u6210\u719f\u5ea6\u5224\u65ad\u3001\u603b\u6d41\u7a0b\u56fe/\u6cf3\u9053\u56fe/\u5f02\u5e38\u6d41\u7a0b\u56fe/\u6570\u636e\u6d41\u56fe\uff0c\u4ee5\u53ca\u4e8c\u7ef4 HTML \u4e09\u89c6\u56fe\u8349\u56fe\u3002"
     ],
     "brandColor": "#256D85"
   }

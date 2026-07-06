@@ -1,7 +1,7 @@
 interface:
   display_name: "Design Input Builder"
-  short_description: "Organize medical mechanical design inputs"
+  short_description: "整理方案输入、工艺步骤、证据和缺口"
   brand_color: "#256D85"
-  default_prompt: "Use $design-input-builder to organize this medical mechanical project into design inputs."
+  default_prompt: "使用 $design-input-builder 把现有资料整理成方案设计输入，明确每个工艺步骤的主体、对象、外部机构、风险和评分。"
 policy:
   allow_implicit_invocation: true

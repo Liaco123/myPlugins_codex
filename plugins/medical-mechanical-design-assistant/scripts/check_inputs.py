@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check medical mechanical design project input completeness."""
+"""Check solution-design project input completeness."""
 
 from __future__ import annotations
 
@@ -10,34 +10,38 @@ from pathlib import Path
 
 LEVEL_REQUIREMENTS = {
     1: [
-        ("inputs/photos", "directory_or_file"),
-        ("inputs/meeting_notes", "directory_or_file"),
+        ("inputs/project_brief.md", "file"),
+        ("inputs/workflow_steps.md", "file"),
         ("inputs/target_action.md", "file"),
-        ("inputs/dimensions.md", "file"),
     ],
     2: [
+        ("inputs/project_brief.md", "file"),
+        ("inputs/workflow_steps.md", "file"),
         ("inputs/photos", "directory_or_file"),
         ("inputs/videos", "directory_or_file"),
         ("inputs/dimensions.md", "file"),
-        ("inputs/manuals", "directory_or_file"),
+        ("inputs/equipment_list.md", "file"),
+        ("inputs/material_list.md", "file"),
         ("inputs/constraints.md", "file"),
     ],
     3: [
+        ("inputs/project_brief.md", "file"),
+        ("inputs/workflow_steps.md", "file"),
         ("inputs/photos", "directory_or_file"),
         ("inputs/videos", "directory_or_file"),
         ("inputs/dimensions.md", "file"),
-        ("inputs/manuals", "directory_or_file"),
+        ("inputs/equipment_list.md", "file"),
+        ("inputs/material_list.md", "file"),
         ("inputs/constraints.md", "file"),
         ("inputs/cad", "directory_or_file"),
-        ("inputs/tolerances.md", "file"),
-        ("inputs/materials.md", "file"),
-        ("inputs/manufacturing_constraints.md", "file"),
+        ("inputs/source_log.md", "file"),
+        ("inputs/safety_and_risk_boundaries.md", "file"),
+        ("inputs/interfaces.md", "file"),
         ("inputs/verification_standards.md", "file"),
     ],
 }
 
 COMMON_RECOMMENDED = [
-    "inputs/project_brief.md",
     "inputs/equipment_list.md",
     "inputs/material_list.md",
     "inputs/workflow_steps.md",
@@ -96,7 +100,7 @@ def main() -> int:
         print(json.dumps(result, indent=2, ensure_ascii=False))
     else:
         status = "PASS" if result["pass"] else "FAIL"
-        print(f"Input completeness level {args.level}: {status}")
+        print(f"Solution input completeness level {args.level}: {status}")
         if missing:
             print("Missing required inputs:")
             for item in missing:

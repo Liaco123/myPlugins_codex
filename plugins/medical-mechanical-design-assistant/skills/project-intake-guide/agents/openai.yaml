@@ -1,7 +1,7 @@
 interface:
   display_name: "Project Intake Guide"
-  short_description: "引导项目资料输入和格式验收"
+  short_description: "引导方案设计资料接收、格式验收和缺口追问"
   brand_color: "#256D85"
-  default_prompt: "使用 $project-intake-guide 引导我准备医疗机械自动化项目资料包。"
+  default_prompt: "使用 $project-intake-guide 帮我准备方案设计资料包，并列出缺少的关键资料。"
 policy:
   allow_implicit_invocation: true

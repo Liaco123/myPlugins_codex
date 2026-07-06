@@ -1,25 +1,31 @@
-# Verification Plan
+# 验证计划
 
-## Scope
+## 范围
 
-## Assumptions
+## 假设与资料缺口
 
-## Verification Matrix
+## 验证矩阵
 
-| ID | Requirement/Risk Link | Method | Setup | Tool | Repetitions | Data Record | Acceptance Criteria | Owner | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ID | Step ID | Requirement/Risk Link | 操作主体 | 操作对象 | 外部机构/系统 | Method | Setup | Tool | Repetitions | Data Record | Acceptance Criteria | Evidence Source | Owner | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Test Setups
+## 步骤级验证覆盖
 
-## Required Tools And Fixtures
+## 外部机构与接口验证
 
-## Data Recording Template
+## 数据记录与追溯验证
 
-## Gate 5 Readiness Verdict
+## 测试设置
+
+## 所需工具、样本与夹具
+
+## 数据记录模板
+
+## Gate 5 准入结论
 
 ## Action Packages
 
-### Action Package: <task name>
+### Action Package: <任务名>
 - Goal:
 - Input materials:
 - Execution steps:

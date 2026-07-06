@@ -1,23 +1,25 @@
-# Preliminary Risk Review
+# 初步风险评审
 
-## Scope
+## 范围
 
-## Risk Table
+## 步骤级风险表
 
-| Hazard | Cause | Effect | Detection | Mitigation | Verification Item | Owner | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Step ID | 工艺步骤 | 操作主体 | 操作对象 | 外部机构/系统 | 风险点 | 原因 | 后果 | 检测方式 | 缓解措施 | 风险评分 1-5 | 资料置信度 1-5 | 验证项 | Owner | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## Highest Priority Risks
+## 最高优先级风险
 
-## Verification Links
+## 风险评分说明
 
-## Residual Concerns
+## 验证链接
 
-## Engineer Review Notes
+## 残余问题
+
+## 工程师评审备注
 
 ## Action Packages
 
-### Action Package: <task name>
+### Action Package: <任务名>
 - Goal:
 - Input materials:
 - Execution steps:

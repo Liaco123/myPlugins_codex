@@ -1,4 +1,4 @@
-# Task List
+# 任务清单
 
-| ID | Task | Owner | Due Date | Status | Linked Risk/Decision |
-| --- | --- | --- | --- | --- | --- |
+| ID | Task | Owner | Linked Step | Linked Risk/Decision | Required Input | Deliverable | Due Date | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
