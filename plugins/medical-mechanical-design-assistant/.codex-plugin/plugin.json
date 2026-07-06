@@ -1,0 +1,34 @@
+{
+  "name": "medical-mechanical-design-assistant",
+  "version": "0.1.0",
+  "description": "A constrained, traceable front-end design workstation for medical mechanical project intake, source collection, concept planning, fixture modifications, risk reviews, verification planning, and layout-ready inputs.",
+  "author": {
+    "name": "Local Medical Mechanical Design Team"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "medical-device",
+    "mechanical-design",
+    "fixture-design",
+    "risk-review",
+    "verification"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Medical Mechanical Design Assistant",
+    "shortDescription": "Structured early-stage medical mechanical design workflow.",
+    "longDescription": "Helps mechanical engineers guide users through project intake, accepted file formats, equipment/source collection, CAD/video/audio readiness, design briefs, concept options, preliminary risk reviews, and verification plans for medical-related embodied intelligence and non-standard fixture modification work. AI generates and challenges drafts; scripts check completeness and file readiness; engineers remain responsible for judgment, approval, and validation.",
+    "developerName": "Local Medical Mechanical Design Team",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "引导我准备一个医疗机械自动化项目的输入资料包。",
+      "整理这个项目的设计输入、缺失资料和来源记录。",
+      "生成方案选项、外部辅助机构清单和初步风险评审。"
+    ],
+    "brandColor": "#256D85"
+  }
+}

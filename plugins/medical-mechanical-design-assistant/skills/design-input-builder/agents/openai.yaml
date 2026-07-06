@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design Input Builder"
+  short_description: "Organize medical mechanical design inputs"
+  brand_color: "#256D85"
+  default_prompt: "Use $design-input-builder to organize this medical mechanical project into design inputs."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Concept And Risk Reviewer"
+  short_description: "Generate concepts and early FMEA-style risks"
+  brand_color: "#256D85"
+  default_prompt: "Use $concept-and-risk-reviewer to compare concepts and draft a risk review."
+policy:
+  allow_implicit_invocation: true

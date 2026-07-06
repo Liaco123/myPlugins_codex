@@ -1,0 +1,7 @@
+interface:
+  display_name: "Verification Plan Builder"
+  short_description: "Build measurable verification plans"
+  brand_color: "#256D85"
+  default_prompt: "Use $verification-plan-builder to create measurable verification items and pass criteria."
+policy:
+  allow_implicit_invocation: true
